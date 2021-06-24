@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner,Table} from "typeorm";
+import {MigrationInterface, QueryRunner,Table} from 'typeorm';
 
 export class CreateUser1624384463346 implements MigrationInterface {
 
@@ -10,7 +10,7 @@ export class CreateUser1624384463346 implements MigrationInterface {
                     {
                         name:"id",
                         type:"uuid",
-                        isPrymary:"true"
+                        isPrimary:true
                     },
                     {
                         name:"name",
@@ -42,6 +42,8 @@ export class CreateUser1624384463346 implements MigrationInterface {
         )
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {}
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable("users");
+    }
 
 }
